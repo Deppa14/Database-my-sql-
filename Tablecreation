@@ -1,0 +1,12 @@
+show databases;
+create database nivi;
+show databases;
+use nivi;
+create table lakshmi(name char(50),age int,phone_no int);
+describe chitra;
+insert into  chitra values('Boomi',20,12345);
+insert into chitra values('koki',21,98765);
+select*from chitra
+alter table chitra add gender char(50);
+update chita set name='koki' where age=21;
+0 comments on commit cd5277a
