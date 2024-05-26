@@ -1,12 +1,42 @@
 show databases;
-create database nivi;
-show databases;
-use nivi;
-create table lakshmi(name char(50),age int,phone_no int);
-describe chitra;
-insert into  chitra values('Boomi',20,12345);
-insert into chitra values('koki',21,98765);
-select*from chitra
-alter table chitra add gender char(50);
-update chita set name='koki' where age=21;
-0 comments on commit cd5277a
+drop database customer;
+create database customer;
+use customer;
+drop table employee;
+drop table branch;
+create table branch(branch_id int primary key,branch_name varchar(30),address varchar(60));
+insert into branch values(1,"madurai","#16 ecr road"),(2,"chennai","18 block c "),(3,"chennai","kk_nagar 3 block"),(4,"coimbatore","ecr_road 12block");
+CREATE TABLE employee (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(80) ,
+    job_des VARCHAR(40),
+    salary BIGINT,
+    branch_id INT,
+    CONSTRAINT frng_key FOREIGN KEY (branch_id) REFERENCES branch(branch_id) 
+);
+INSERT INTO employee (emp_id, emp_name, job_des, salary, branch_id)
+VALUES
+    (1, 'BOOMI', 'HR', 70000, 3),
+    (2, 'PREETHI', 'MANAGER', 50000, 2),
+    (3, 'RAJI', 'ENGINEER', 30000, 4),
+    (4, 'SANJAY', 'ANALYST', 40000, 2),
+    (5, 'DEEPA', 'ANALYST', 40000, 3),
+    (6, 'LOGESH', 'HR', 100000, 2),
+    (7, 'KARTHI', 'HR', 100000, 3),
+    (8, 'YAMINI', 'JUNIOR ANALYST', 35000, 3),
+    (9, 'MONISHA', 'ADMIN', 50000, 2),
+    (10, 'SARANYA', 'ANALYST', 40000, 1);
+describe employee;
+select*from branch;
+select*from employee;
+select*from branch inner join employee on branch.branch_id = employee.emp_id limit 0,20;
+SELECT *
+FROM branch
+LEFT JOIN employee ON branch.branch_id = employee.branch_id
+LIMIT 0, 2000;
+SELECT *
+FROM branch
+right JOIN employee ON branch.branch_id = employee.branch_id
+LIMIT 0, 5;
+
+
